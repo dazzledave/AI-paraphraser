@@ -3,6 +3,7 @@
 A modern web application built with React, TypeScript, and Vite that provides AI-powered text paraphrasing capabilities. The application features a clean, responsive UI with dark mode support and multiple paraphrasing styles.
 
 ## Features
+![image](https://github.com/user-attachments/assets/25a5648c-27f5-451a-b02c-f24210d8e82a)
 
 - 🤖 AI-powered text paraphrasing
 - 🌓 Dark/Light mode support
