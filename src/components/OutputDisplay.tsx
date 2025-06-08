@@ -32,7 +32,7 @@ const OutputDisplay = ({
   };
 
   return (
-    <Card className="w-full h-full bg-white shadow-md">
+    <Card className="w-full h-full bg-card shadow-md">
       <CardHeader className="pb-2">
         <div className="flex justify-between items-center">
           <CardTitle className="text-xl font-semibold">
@@ -55,11 +55,11 @@ const OutputDisplay = ({
         ) : error ? (
           <div className="text-destructive font-medium py-4">{error}</div>
         ) : paraphrasedText ? (
-          <div className="text-gray-700 whitespace-pre-wrap">
+          <div className="text-foreground whitespace-pre-wrap">
             {paraphrasedText}
           </div>
         ) : (
-          <div className="text-gray-400 italic py-4">
+          <div className="text-muted-foreground italic py-4">
             Paraphrased text will appear here...
           </div>
         )}

@@ -33,8 +33,8 @@ const StyleSelector = ({
   };
 
   return (
-    <div className="bg-white w-full p-4 rounded-md shadow-sm">
-      <h3 className="text-sm font-medium mb-2 text-gray-700">
+    <div className="bg-card w-full p-4 rounded-md shadow-sm">
+      <h3 className="text-sm font-medium mb-2 text-foreground">
         Select Paraphrasing Style
       </h3>
       <div className="flex flex-wrap gap-2">
