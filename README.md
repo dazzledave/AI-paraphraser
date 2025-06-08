@@ -3,6 +3,7 @@
 A modern web application built with React, TypeScript, and Vite that provides AI-powered text paraphrasing capabilities. The application features a clean, responsive UI with dark mode support and multiple paraphrasing styles.
 
 ## Features
+![image](https://github.com/user-attachments/assets/25a5648c-27f5-451a-b02c-f24210d8e82a)
 
 - 🤖 AI-powered text paraphrasing
 - 🌓 Dark/Light mode support
@@ -21,7 +22,7 @@ Before you begin, ensure you have the following installed:
 
 1. Clone the repository:
 ```bash
-git clone <your-repository-url>
+git clone <the-repository-url>
 cd <repository-name>
 ```
 
@@ -34,7 +35,7 @@ yarn install
 
 ## Available Scripts
 
-In the project directory, you can run:
+Depending on what dependencies you install in the project directory, you can run:
 
 ```bash
 # Start development server
