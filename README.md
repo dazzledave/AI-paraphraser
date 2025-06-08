@@ -35,7 +35,7 @@ yarn install
 
 ## Available Scripts
 
-In the project directory, you can run:
+Depending on what dependencies you install in the project directory, you can run:
 
 ```bash
 # Start development server
