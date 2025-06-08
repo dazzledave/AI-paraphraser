@@ -18,9 +18,9 @@ Before you begin, ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (v16 or higher)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-## Installation
+## How to run the program
 
-1. Clone the repository:
+1. Open your IDE & clone the repository:
 ```bash
 git clone <the-repository-url>
 cd <repository-name>
