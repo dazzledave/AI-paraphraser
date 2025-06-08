@@ -16,7 +16,7 @@ cd ..
 
 2. Create a `.env` file in the `api` directory with your Hugging Face API token:
 ```
-HUGGING_FACE_API_KEY=your_api_token_here
+HUGGING_FACE_TOKEN=your_token_here
 ```
 > 💡 Get your free API token from [Hugging Face](https://huggingface.co/settings/tokens) - it takes less than 2 minutes!
 

@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+// Load environment variables from .env file
 dotenv.config();
 
 const app = express();
@@ -11,9 +12,17 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Constants
-const HUGGING_FACE_TOKEN = "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";
+// Get token from environment variable
+const HUGGING_FACE_TOKEN = process.env.HUGGING_FACE_TOKEN;
 const MODEL_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn";
+
+// Validate token exists
+if (!HUGGING_FACE_TOKEN) {
+  console.error("Error: HUGGING_FACE_TOKEN not found in environment variables");
+  console.error("Please create a .env file in the api directory with your Hugging Face token:");
+  console.error("HUGGING_FACE_TOKEN=your_token_here");
+  process.exit(1);
+}
 
 // Types
 interface ParaphraseRequest {
