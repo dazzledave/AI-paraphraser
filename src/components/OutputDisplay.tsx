@@ -4,17 +4,17 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface OutputDisplayProps {
-  paraphrasedText: string;
-  selectedStyle: "Formal" | "Casual" | "Concise" | "Creative" | null;
-  isLoading?: boolean;
-  error?: string | null;
+  outputText: string;
+  selectedStyle: "Formal" | "Casual" | "Concise" | "Creative";
+  isLoading: boolean;
+  isProcessed: boolean;
 }
 
 const OutputDisplay = ({
-  paraphrasedText = "",
+  outputText = "",
   selectedStyle = "Casual",
   isLoading = false,
-  error = null,
+  isProcessed = false,
 }: OutputDisplayProps) => {
   const getBadgeVariant = () => {
     switch (selectedStyle) {
@@ -38,7 +38,7 @@ const OutputDisplay = ({
           <CardTitle className="text-xl font-semibold">
             Paraphrased Text
           </CardTitle>
-          {selectedStyle && !isLoading && !error && (
+          {selectedStyle && !isLoading && (
             <Badge variant={getBadgeVariant()}>{selectedStyle}</Badge>
           )}
         </div>
@@ -52,11 +52,9 @@ const OutputDisplay = ({
             <Skeleton className="h-4 w-[85%]" />
             <Skeleton className="h-4 w-[70%]" />
           </div>
-        ) : error ? (
-          <div className="text-destructive font-medium py-4">{error}</div>
-        ) : paraphrasedText ? (
+        ) : outputText ? (
           <div className="text-foreground whitespace-pre-wrap">
-            {paraphrasedText}
+            {outputText}
           </div>
         ) : (
           <div className="text-muted-foreground italic py-4">

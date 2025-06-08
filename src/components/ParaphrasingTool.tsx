@@ -9,6 +9,8 @@ import OutputDisplay from "./OutputDisplay";
 
 type ParaphrasingStyle = "Formal" | "Casual" | "Concise" | "Creative";
 
+const API_URL = "http://localhost:3000/api/paraphrase";
+
 const ParaphrasingTool = () => {
   const [inputText, setInputText] = useState<string>("");
   const [outputText, setOutputText] = useState<string>("");
@@ -56,49 +58,31 @@ const ParaphrasingTool = () => {
       return;
     }
 
-    // Check for inappropriate content (simplified example)
-    const inappropriateWords = ["inappropriate1", "inappropriate2"]; // Replace with actual implementation
-    const hasInappropriateContent = inappropriateWords.some((word) =>
-      inputText.toLowerCase().includes(word.toLowerCase()),
-    );
-
-    if (hasInappropriateContent) {
-      setError("Cannot process this content.");
-      return;
-    }
-
     // Start loading
     setIsLoading(true);
 
     try {
-      // Simulate API call with timeout
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: inputText,
+          style: selectedStyle,
+        }),
+      });
 
-      // In a real implementation, this would be an API call to a paraphrasing service
-      // For now, we'll just simulate different outputs based on the selected style
-      let result = "";
-
-      switch (selectedStyle) {
-        case "Formal":
-          result = `This is a formal paraphrase of: "${inputText.substring(0, 50)}${inputText.length > 50 ? "..." : ""}"\n\nThe formal paraphrased version would appear here with more professional vocabulary and structure.`;
-          break;
-        case "Casual":
-          result = `This is a casual paraphrase of: "${inputText.substring(0, 50)}${inputText.length > 50 ? "..." : ""}"\n\nThe casual paraphrased version would appear here with everyday language and a conversational tone.`;
-          break;
-        case "Concise":
-          result = `This is a concise paraphrase of: "${inputText.substring(0, 50)}${inputText.length > 50 ? "..." : ""}"\n\nThe concise paraphrased version would appear here with fewer words while maintaining the core meaning.`;
-          break;
-        case "Creative":
-          result = `This is a creative paraphrase of: "${inputText.substring(0, 50)}${inputText.length > 50 ? "..." : ""}"\n\nThe creative paraphrased version would appear here with figurative language and engaging expressions.`;
-          break;
-        default:
-          result = `Paraphrased version of your text would appear here.`;
+      if (!response.ok) {
+        throw new Error('Failed to paraphrase text');
       }
 
-      setOutputText(result);
+      const data = await response.json();
+      setOutputText(data.paraphrasedText);
       setIsProcessed(true);
     } catch (err) {
       setError("An error occurred while paraphrasing. Please try again.");
+      console.error('Error:', err);
     } finally {
       setIsLoading(false);
     }

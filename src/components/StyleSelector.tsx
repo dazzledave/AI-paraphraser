@@ -12,11 +12,13 @@ export type ParaphrasingStyle = "Formal" | "Casual" | "Concise" | "Creative";
 interface StyleSelectorProps {
   selectedStyle: ParaphrasingStyle;
   onStyleChange: (style: ParaphrasingStyle) => void;
+  disabled?: boolean;
 }
 
 const StyleSelector = ({
   selectedStyle = "Casual",
   onStyleChange,
+  disabled = false,
 }: StyleSelectorProps) => {
   const styles: ParaphrasingStyle[] = [
     "Formal",
@@ -46,6 +48,7 @@ const StyleSelector = ({
                   variant={selectedStyle === style ? "default" : "outline"}
                   size="sm"
                   onClick={() => onStyleChange(style)}
+                  disabled={disabled}
                   className={`transition-all ${selectedStyle === style ? "ring-2 ring-primary ring-offset-1" : ""}`}
                 >
                   {style}
