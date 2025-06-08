@@ -11,7 +11,7 @@ export default function Home() {
             AI Paraphrasing Tool
           </h1>
           <p className="mt-2 text-muted-foreground">
-            Transform your text while preserving its original meaning
+            New words, same meaning. Smarter writing.
           </p>
         </div>
         <div className="ml-4">
