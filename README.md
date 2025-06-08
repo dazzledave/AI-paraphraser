@@ -46,9 +46,9 @@ Before you begin, ensure you have the following installed:
 
 ## Running the Application
 
-You need to run both the frontend and backend servers:
+## How to run the program
 
-1. Start the backend server (in one terminal):
+1. Open your IDE & clone the repository:
 ```bash
 cd api
 npx ts-node src/server.ts
